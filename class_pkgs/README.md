@@ -18,13 +18,13 @@ Por lo que se cambio el archivo urdf del robot diferencial como se muestra a con
 
 Esto para ambas ruedas del robot.
 
-4. Yolo
+3. Yolo
 
 Un cambio minimo se aplico, Yolo ya no despliega la ventana de imagen, en su lugar se configuro el RVIZ para que la muestre.
 
 ![image](https://user-images.githubusercontent.com/74274632/204142272-f6b985aa-b318-4590-81ac-069e58ad259e.png)
 
-6. Moveit comander
+4. Moveit comander
 
 Este package corresponde a Moveit y fue modificado para eliminar el siguiente warning.
 
