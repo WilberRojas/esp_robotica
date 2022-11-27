@@ -2,11 +2,22 @@
 
 Este proyecto fue desarrollado con Ubuntu 20.04 y ROS Noetic.
 
+## Clonación
+Se debe clonar este branch dentro de un workspace de ROS.<br />
+Para clonar este branch use:
+```
+git clone https://github.com/WilberRojas/esp_robotica -b integracion
+```
+compilar con:
+```
+catkin_make
+```
+
 ## Ejecución
 
 Se dividio el proyecto para que corra con 4 terminales diferentes:<br />
 Una para gazebo, otra para YOLOv5, otra para el proyecto, y otra para el trigger. <br />
-De esta manera, es mas rapido evaluar diferentes parametros para cada escenario, siendo que se puede dejar corriendo las terminales más pesadas (Gazebo, Yolo) y cambiar los parametros del proyecto.
+De esta manera, es más rápido evaluar diferentes parametros para cada escenario, siendo que se puede dejar corriendo las terminales más pesadas (Gazebo, Yolo) y cambiar el objetivo del brazo.
 
 Se a creado archivos bash que simplifican la ejecucion de los comandos del proyecto.<br />
 En este sentido, debera mover los 3 archivos de la carpeta [comandos](/comandos) fuera del src del workspace. <br />
@@ -14,8 +25,8 @@ Y debe hacerlos ejecutables. Ver imagen de referencia:
 
 ![image](https://user-images.githubusercontent.com/74274632/204111662-c9a1d678-5cdf-45d7-9131-7bb7c2466e8f.png)
 
-> Nota: Para una buena documentacion tambien se comparte los packages de clases en [class_pkgs.zip](/class_pkgs.zip).  <br />
-Los cambios en estos packages se encuentran detallados en [class_pkgs_changes](/class_pkgs_changes)  <br />
+> Nota: Hay que descomprimir el package de yolo en la carpeta [class_pkgs](/class_pkgs).  <br />
+Los cambios en estos packages se encuentran detallados en el [README.md](/class_pkgs/README.md) de la misma carpeta  <br />
 En resumen se tiene esta estructura de packages: <br />
 ![image](https://user-images.githubusercontent.com/74274632/204145978-950fe188-f8b1-47d1-942c-edb1580c86b2.png)
 
