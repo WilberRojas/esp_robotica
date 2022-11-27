@@ -3,32 +3,41 @@
 Este proyecto fue desarrollado con Ubuntu 20.04 y ROS Noetic.
 
 ## Clonación
-Se debe clonar este branch dentro de un workspace de ROS.<br />
+Se debe clonar este branch dentro del src de un workspace de ROS.<br />
 Para clonar este branch use:
 ```
 git clone https://github.com/WilberRojas/esp_robotica -b integracion
 ```
-compilar con:
-```
-catkin_make
-```
+Ahora debe hacer ejecutable el archivo setup.sh y correrlo, ver imagen para referencia.
+En resumen, setup.sh hara:
+* Ejecutables los archivos .py
+* Moverá y hara ejecutables los archivos de la carpeta comandos (que se usan en las terminales después)
+* Descomprimirá los packages de yolo
+* Compilará el proyecto
+
+![image](https://user-images.githubusercontent.com/74274632/204157841-931b3b0e-be6b-4018-a24d-1ad73f63208b.png)
+
+> Nota: Los cambios de los packages de clases en [README.md](/class_pkgs/README.md) 
+
+En resumen se tiene esta estructura de packages: <br />
+![image](https://user-images.githubusercontent.com/74274632/204158739-afa57274-d400-45a0-a1b2-70c463091059.png)
+
 
 ## Ejecución
 
 Se dividio el proyecto para que corra con 4 terminales diferentes:<br />
-Una para gazebo, otra para YOLOv5, otra para el proyecto, y otra para el trigger. <br />
+ * Una para gazebo
+ * Otra para YOLO
+ * Otra para el proyecto
+ * Y otra para el trigger. 
+ 
 De esta manera, es más rápido evaluar diferentes parametros para cada escenario, siendo que se puede dejar corriendo las terminales más pesadas (Gazebo, Yolo) y cambiar el objetivo del brazo.
 
-Se a creado archivos bash que simplifican la ejecucion de los comandos del proyecto.<br />
-En este sentido, debera mover los 3 archivos de la carpeta [comandos](/comandos) fuera del src del workspace. <br />
-Y debe hacerlos ejecutables. Ver imagen de referencia:
+Si corrio setup.sh entonces notara que hay 3 archivos fuera del src del workspace, ver imagen de referencia:
 
-![image](https://user-images.githubusercontent.com/74274632/204111662-c9a1d678-5cdf-45d7-9131-7bb7c2466e8f.png)
+![image](https://user-images.githubusercontent.com/74274632/204158147-614b2c75-72c4-42c8-b21d-7e27e726fe17.png)
 
-> Nota: Hay que descomprimir el package de yolo en la carpeta [class_pkgs](/class_pkgs).  <br />
-Los cambios en estos packages se encuentran detallados en el [README.md](/class_pkgs/README.md) de la misma carpeta  <br />
-En resumen se tiene esta estructura de packages: <br />
-![image](https://user-images.githubusercontent.com/74274632/204145978-950fe188-f8b1-47d1-942c-edb1580c86b2.png)
+Habra 4 terminales dentro de su "ros_ws" y corra:
 
 ### Terminal 1:
 Primero corremos el mundo de gazebo con:
