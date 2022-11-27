@@ -1,0 +1,94 @@
+<!-- comando para la terminal:
+  roslaunch project_pkg project.launch test:=A detection:=person aruco:=17 
+-->
+<launch>
+  <!--  **************** Arguments **************** -->    
+  <arg name="run_gazebo" default="false"/>
+  <arg name="test" default="E"/> 
+
+  <arg name="run_rviz" default='true'/>
+
+  <!-- Dependiente de Gazebo: -->
+  <arg name="run_yolo" default="false"/> <!-- Yolo -->
+
+  <arg name="run_Aruco_Finder" default="true"/> <!-- Aruco_Finder -->
+  <arg name="aruco" default="17"/>  
+  
+  <!-- Dependiente de Aruco_Finder: -->
+  <arg name="run_aruco_2_rviz" default="true"/> <!-- Aruco_RVIZ -->
+
+  <!-- Dependiente de Yolo, Aruco_RVIZ y la publicacion de trigger: -->
+  <arg name="run_Moveit_Python" default="true"/> <!-- Moveit_Python -->
+  <arg name="detection" default="person"/> 
+
+  <!-- Dependiente de Moveit_Python: -->
+  <arg name="run_model_move" default="true"/> <!-- Model_Move -->
+  
+
+  <!-- ********************************** Robot GAZEBO: roslaunch perception testA.launch *********************** -->
+  
+  <group if="$(arg run_gazebo)">  
+    
+    <group if="$(eval arg('test') =='A')">
+      <include file="$(find perception)/launch/testA.launch" />
+    </group> 
+
+    <group if="$(eval arg('test') =='B')">
+      <include file="$(find perception)/launch/testB.launch" />
+    </group> 
+    
+    <group if="$(eval arg('test') =='C')">
+      <include file="$(find perception)/launch/testC.launch" />
+    </group>
+ 
+    <group if="$(eval arg('test') =='D')">
+      <include file="$(find perception)/launch/testD.launch" />
+    </group> 
+
+  </group> 
+
+  <!-- Brazo en RVIZ: roslaunch simple_kr6_moveit demo.launch  --> 
+  <group if="$(arg run_rviz)">
+    <include file="$(find simple_kr6_moveit)/launch/demo.launch" />
+  </group>
+
+  <!-- Aruco_Finder: roslaunch aruco_pose aruco_marker_finder.launch     -->  
+  
+  <group if="$(arg run_Aruco_Finder)">
+
+    <group if="$(eval arg('aruco') ==17)">
+      <include file="$(find aruco_pose)/launch/aruco_marker_finder_17.launch"/>
+    </group>
+    <group if="$(eval arg('aruco') ==29)">
+      <include file="$(find aruco_pose)/launch/aruco_marker_finder_29.launch"/>
+    </group>  
+    
+  </group>
+  
+  <!-- Yolo: roslaunch yolov5_ros yolov5.launch     -->
+  <group if="$(arg run_yolo)">
+    <include file="$(find yolov5_ros)/launch/yolov5.launch"/>
+  </group>  
+
+  <!--Aruco_RVIZ: rosrun project_pkg aruco_to_rviz.py -->
+  <group if="$(arg run_aruco_2_rviz)">
+    <node name="aruco_to_rviz" pkg="project_pkg" type="aruco_to_rviz.py" output="screen">
+      <param name="test" value="$(arg test)" />
+    </node>
+  </group>
+
+  <!-- Moveit_Python: rosrun project_pkg model_move.py  -->  
+  <group if="$(arg run_Moveit_Python)">  
+    <node name="moveit_python" pkg="project_pkg" type="moveit_python.py" output="screen">
+      <param name="aruco" value="$(arg aruco)" />
+      <param name="detection" value="$(arg detection)" />
+      <param name="test" value="$(arg test)" />
+    </node>   
+  </group>  
+ 
+  <!--Model_Move: rosrun project_pkg model_move.py -->
+  <group if="$(arg run_model_move)">
+    <node name="model_move" pkg="project_pkg" type="model_move.py" output="screen"/>
+  </group>
+
+</launch>
