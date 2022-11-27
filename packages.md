@@ -30,7 +30,7 @@ Este package corresponde a Moveit y fue modificado para eliminar el siguiente wa
 
 ![image](https://user-images.githubusercontent.com/74274632/204142435-6f1a3689-bc8e-4bbc-b050-c0aa18bef117.png)
 
-Se modifico el codigo de planing_interface.py como se muestra a continuacion:
+Se modifico el codigo de planing_scene_interface.py como se muestra a continuacion:
 
 ![image](https://user-images.githubusercontent.com/74274632/204142573-675174ac-cc94-4dfe-bb7c-e28cc6bbeae3.png)
 
