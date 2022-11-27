@@ -45,7 +45,7 @@ Ahora correremos Yolo, el cual necesita que gazebo este en ejecucion ya que usa 
 ### Terminal 3:
 Ahora correremos el proyecto:
 ```
-project.sh goalA
+./project.sh goalA
 ```
 
 En este caso el parametro "goalA" indica el objetivo del brazo respecto a:.
