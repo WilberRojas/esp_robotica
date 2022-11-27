@@ -14,7 +14,9 @@ El moveit desarrollado desde 0, retorna este error al correrlo junto a los test 
 
 Por lo que se cambio el archivo urdf del robot diferencial como se muestra a continuacion:
 
-![image](https://user-images.githubusercontent.com/74274632/204142200-7a14b0bd-2452-4556-9d0a-cde6a217dbd1.png)
+![image](https://user-images.githubusercontent.com/74274632/204142845-504ee33c-868f-45e5-b83e-de804fef7836.png)
+
+Esto para ambas ruedas del robot.
 
 4. Yolo
 
