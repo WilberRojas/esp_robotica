@@ -2,20 +2,10 @@
 
 Este proyecto fue desarrollado con Ubuntu 20.04 y ROS Noetic.
 
-## Compilación
-Despues de clonar este repositorio en un workspace de ROS, compilelo con:
-
-```
-catkin_make
-```
-No olvide actualizar la terminal con:
-```
-source devel/setup.bash
-```
 ## Ejecución
 
-Se dividio el proyecto para que corra con 3 terminales diferentes:<br />
-Una para gazebo, otra para YOLOv5, Y otra para el proyecto. <br />
+Se dividio el proyecto para que corra con 4 terminales diferentes:<br />
+Una para gazebo, otra para YOLOv5, otra para el proyecto, y otra para el trigger. <br />
 De esta manera, es mas rapido evaluar diferentes parametros para cada escenario, siendo que se puede dejar corriendo las terminales más pesadas (Gazebo, Yolo) y cambiar los parametros del proyecto.
 
 Se a creado archivos bash que simplifican la ejecucion de los comandos del proyecto.<br />
@@ -51,7 +41,11 @@ En este caso el parametro "goalA" indica el objetivo del brazo respecto a:.
 
 ![image](https://user-images.githubusercontent.com/74274632/204111977-ef9fb0ed-f6c7-473b-8b6e-4f60d3396189.png)
 
-
+### Terminal 4:
+Finalmente le mandamos la señal al kuka para que se mueva:
+```
+rostopic pub /trigger std_msgs/Int32 "data: 1"
+```
 ## Demostraciones
 
 https://user-images.githubusercontent.com/74274632/204146264-fd2c58c4-1c5b-4761-bae4-d736b0524cf9.mp4
@@ -61,6 +55,3 @@ https://user-images.githubusercontent.com/74274632/204146348-b8bcd6eb-9154-4f5b-
 https://user-images.githubusercontent.com/74274632/204146358-213086c4-3b11-4a37-840b-707bf8995d1f.mp4
 
 https://user-images.githubusercontent.com/74274632/204146363-32ae43b3-70f8-4392-ade5-366d4b037f85.mp4
-
-
-
