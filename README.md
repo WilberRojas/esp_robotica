@@ -18,9 +18,13 @@ catkin_make
 source devel/setup.bash
 ```
 
-## Conseguir cualquier robot
+## Moveit
 [Vídeo]
-### Repositorios
+```
+roslaunch moveit_setup_assistant setup_assistant.launch
+```
+
+### Repositorios de brazos roboticos
 
 https://github.com/ros-industrial/abb </br>
 https://github.com/ros-industrial/abb_experimental
@@ -37,8 +41,4 @@ https://github.com/ros-industrial/universal_robot
 
 https://github.com/ros-industrial/motoman
 
-## Moveit
-[Vídeo]
-```
-roslaunch moveit_setup_assistant setup_assistant.launch
-```
+
